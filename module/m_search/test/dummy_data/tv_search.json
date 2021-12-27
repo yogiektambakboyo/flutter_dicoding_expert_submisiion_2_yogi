@@ -1,0 +1,27 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "backdrop_path": "/1Ep6YHL5QcrNC1JN6RYalWRPopi.jpg",
+            "first_air_date": "2019-07-05",
+            "genre_ids": [
+                1,
+                2
+            ],
+            "id": 1,
+            "name": "Dr. Stone",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ドクターストーン",
+            "overview": "One fateful day, all of humanity was petrified by a blinding flash of light. After several millennia, high schooler Taiju awakens and finds himself lost in a world of statues. However, he's not alone! His science-loving friend Senku's been up and running for a few months and he's got a grand plan in mind, to kickstart civilization with the power of science!",
+            "popularity": 16.927,
+            "poster_path": "/dLlnzbDCblBXcJqFLXyvN43NIwp.jpg",
+            "vote_average": 8.8,
+            "vote_count": 927
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 1
+}
