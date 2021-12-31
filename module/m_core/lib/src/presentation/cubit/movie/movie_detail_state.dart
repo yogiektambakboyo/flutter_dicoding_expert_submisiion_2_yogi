@@ -33,8 +33,7 @@ class MovieDetailState extends Equatable {
     ];
   }
 
-  @override
-  bool get stringify => true;
+
 
   MovieDetailState copyWith({
     MovieDetail? movie,

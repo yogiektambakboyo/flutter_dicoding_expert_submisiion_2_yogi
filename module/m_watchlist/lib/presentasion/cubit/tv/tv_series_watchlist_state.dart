@@ -27,14 +27,6 @@ class TVSeriesWatchlistErrorState extends TVSeriesWatchlistState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesWatchlistErrorState copyWith({
-    String? message,
-  }) {
-    return TVSeriesWatchlistErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class TVSeriesWatchlistLoadedState extends TVSeriesWatchlistState {
@@ -49,12 +41,4 @@ class TVSeriesWatchlistLoadedState extends TVSeriesWatchlistState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesWatchlistLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesWatchlistLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

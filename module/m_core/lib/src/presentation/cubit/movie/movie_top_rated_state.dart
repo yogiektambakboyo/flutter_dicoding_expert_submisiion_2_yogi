@@ -25,16 +25,7 @@ class MovieTopRatedErrorState extends MovieTopRatedState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  MovieTopRatedErrorState copyWith({
-    String? message,
-  }) {
-    return MovieTopRatedErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class MovieTopRatedLoadedState extends MovieTopRatedState {
@@ -47,14 +38,5 @@ class MovieTopRatedLoadedState extends MovieTopRatedState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  MovieTopRatedLoadedState copyWith({
-    List<Movie>? items,
-  }) {
-    return MovieTopRatedLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

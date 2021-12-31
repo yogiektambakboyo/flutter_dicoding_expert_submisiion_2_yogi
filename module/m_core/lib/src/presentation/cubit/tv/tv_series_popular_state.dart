@@ -24,16 +24,7 @@ class TVSeriesPopularErrorState extends TVSeriesPopularState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesPopularErrorState copyWith({
-    String? message,
-  }) {
-    return TVSeriesPopularErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class TVSeriesPopularLoadedState extends TVSeriesPopularState {
@@ -46,14 +37,5 @@ class TVSeriesPopularLoadedState extends TVSeriesPopularState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesPopularLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesPopularLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

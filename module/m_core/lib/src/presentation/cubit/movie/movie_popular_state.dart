@@ -25,16 +25,7 @@ class MoviePopularErrorState extends MoviePopularState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  MoviePopularErrorState copyWith({
-    String? message,
-  }) {
-    return MoviePopularErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class MoviePopularLoadedState extends MoviePopularState {
@@ -47,14 +38,5 @@ class MoviePopularLoadedState extends MoviePopularState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  MoviePopularLoadedState copyWith({
-    List<Movie>? items,
-  }) {
-    return MoviePopularLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

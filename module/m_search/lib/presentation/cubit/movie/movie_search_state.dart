@@ -27,14 +27,6 @@ class MovieSearchErrorState extends MovieSearchState {
 
   @override
   bool get stringify => true;
-
-  MovieSearchErrorState copyWith({
-    String? message,
-  }) {
-    return MovieSearchErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class MovieSearchLoadedState extends MovieSearchState {
@@ -49,12 +41,4 @@ class MovieSearchLoadedState extends MovieSearchState {
 
   @override
   bool get stringify => true;
-
-  MovieSearchLoadedState copyWith({
-    List<Movie>? items,
-  }) {
-    return MovieSearchLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

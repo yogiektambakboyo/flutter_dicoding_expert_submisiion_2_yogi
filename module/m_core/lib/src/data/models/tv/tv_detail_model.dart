@@ -63,8 +63,8 @@ class TVDetailResponse extends Equatable {
   final List<GenreModel> genres;
   final List<SeasonModel> seasons;
 
-  factory TVDetailResponse.fromJson(Map<String, dynamic> json) => _$TVDetailResponseFromJson(json);
-  Map<String, dynamic> toJson() => _$TVDetailResponseToJson(this);
+  factory TVDetailResponse.fromJson(Map<String, dynamic> json) => _TVDetailResponseFromJson(json);
+  Map<String, dynamic> toJson() => _TVDetailResponseToJson(this);
 
   TVDetail toEntity() => TVDetail(
         backdropPath: backdropPath,
@@ -124,12 +124,11 @@ class TVDetailResponse extends Equatable {
     ];
   }
 
-  @override
-  bool get stringify => true;
+
 }
 
 
-TVDetailResponse _$TVDetailResponseFromJson(Map<String, dynamic> json) =>
+TVDetailResponse _TVDetailResponseFromJson(Map<String, dynamic> json) =>
     TVDetailResponse(
       backdropPath: json['backdrop_path'] as String?,
       episodeRunTime: (json['episode_run_time'] as List<dynamic>)
@@ -171,7 +170,7 @@ TVDetailResponse _$TVDetailResponseFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$TVDetailResponseToJson(TVDetailResponse instance) =>
+Map<String, dynamic> _TVDetailResponseToJson(TVDetailResponse instance) =>
     <String, dynamic>{
       'backdrop_path': instance.backdropPath,
       'episode_run_time': instance.episodeRunTime,

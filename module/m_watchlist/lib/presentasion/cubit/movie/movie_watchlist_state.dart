@@ -27,14 +27,6 @@ class MovieWatchlistErrorState extends MovieWatchlistState {
 
   @override
   bool get stringify => true;
-
-  MovieWatchlistErrorState copyWith({
-    String? message,
-  }) {
-    return MovieWatchlistErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class MovieWatchlistLoadedState extends MovieWatchlistState {
@@ -49,12 +41,4 @@ class MovieWatchlistLoadedState extends MovieWatchlistState {
 
   @override
   bool get stringify => true;
-
-  MovieWatchlistLoadedState copyWith({
-    List<Movie>? items,
-  }) {
-    return MovieWatchlistLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

@@ -33,8 +33,7 @@ class TVSeriesDetailState extends Equatable {
     ];
   }
 
-  @override
-  bool get stringify => true;
+
 
   TVSeriesDetailState copyWith({
     TVDetail? tv,

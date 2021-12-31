@@ -84,7 +84,6 @@ class _DetailContentState extends State<DetailContent> {
           imageUrl: 'https://image.tmdb.org/t/p/w500${widget.movie.posterPath}',
           width: screenWidth,
           placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
         Container(
           margin: const EdgeInsets.only(top: 48 + 8),
@@ -224,8 +223,6 @@ class _DetailContentState extends State<DetailContent> {
                                                 placeholder: (context, url) => const Center(
                                                   child: CircularProgressIndicator(),
                                                 ),
-                                                errorWidget: (context, url, error) =>
-                                                    const Icon(Icons.error),
                                               ),
                                             ),
                                           ),

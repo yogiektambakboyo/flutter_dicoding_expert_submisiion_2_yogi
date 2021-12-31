@@ -8,7 +8,6 @@ import '../models/tv/tv_detail_model.dart';
 import '../../data/models/tv/tv_model.dart';
 
 abstract class TVRemoteDataSource {
-  Future<List<TVModel>> getAiringTodayTVSeries();
   Future<List<TVModel>> getOnTheAirTVSeries();
   Future<List<TVModel>> getPopularTVSeries();
   Future<List<TVModel>> getTopRatedTVSeries();
@@ -27,17 +26,6 @@ class TVRemoteDataSourceImp implements TVRemoteDataSource {
   TVRemoteDataSourceImp({
     required this.client,
   });
-
-  @override
-  Future<List<TVModel>> getAiringTodayTVSeries() async {
-    final response = await client.get(Uri.parse('$BASE_URL/tv/airing_today?$API_KEY'));
-    if (response.statusCode == 200) {
-      final result = (jsonDecode(response.body)['results']) as List;
-      return result.map((e) => TVModel.fromJson(Map<String, dynamic>.from(e))).toList();
-    } else {
-      throw ServerException();
-    }
-  }
 
   @override
   Future<List<TVModel>> getOnTheAirTVSeries() async {

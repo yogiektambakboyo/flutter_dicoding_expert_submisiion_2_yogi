@@ -25,16 +25,7 @@ class MovieRecommendationsErrorState extends MovieRecommendationsState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  MovieRecommendationsErrorState copyWith({
-    String? message,
-  }) {
-    return MovieRecommendationsErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class MovieRecommendationsLoadedState extends MovieRecommendationsState {
@@ -47,14 +38,5 @@ class MovieRecommendationsLoadedState extends MovieRecommendationsState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  MovieRecommendationsLoadedState copyWith({
-    List<Movie>? items,
-  }) {
-    return MovieRecommendationsLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

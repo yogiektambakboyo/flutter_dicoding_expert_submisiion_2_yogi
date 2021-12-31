@@ -64,6 +64,26 @@ void main() {
     expect(watchlistButtonIcon, findsOneWidget);
   });
 
+
+  testWidgets('State Error',
+          (WidgetTester tester) async {
+        /// Find widget
+        final watchlistButtonIcon = find.text("Error");
+
+        initializeFunction();
+
+        when(() => movieDetailCbtMock.state)
+            .thenAnswer((_) => const MovieDetailState(
+            requestState: RequestState.Error,
+          message: "Error",
+          messageWatchlist: "Error",
+        ));
+
+        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+
+        expect(watchlistButtonIcon, findsOneWidget);
+      });
+
   testWidgets('Watchlist button should dispay check icon when movie is added to wathclist',
       (WidgetTester tester) async {
     /// Find Widget

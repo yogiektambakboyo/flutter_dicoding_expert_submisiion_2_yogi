@@ -19,8 +19,6 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
     super.initState();
     Future.microtask(
       () {
-        // Provider.of<WatchlistMovieNotifier>(context, listen: false).fetchWatchlistMovies();
-        // Provider.of<TVSeriesWatchlistNotifier>(context, listen: false).get();
         context.read<TVSeriesWatchlistCbt>().get();
         context.read<MovieWatchlistCbt>().get();
       },

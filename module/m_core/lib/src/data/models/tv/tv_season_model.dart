@@ -49,9 +49,6 @@ class SeasonModel extends Equatable {
       seasonNumber,
     ];
   }
-
-  @override
-  bool get stringify => true;
 }
 
 

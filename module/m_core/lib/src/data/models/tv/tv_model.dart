@@ -76,8 +76,7 @@ class TVModel extends Equatable {
     ];
   }
 
-  @override
-  bool get stringify => true;
+
 }
 
 

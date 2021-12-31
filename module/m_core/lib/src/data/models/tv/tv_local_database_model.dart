@@ -44,8 +44,7 @@ class TVLocalDatabaseModel extends Equatable {
   @override
   List<Object> get props => [id, title, posterPath, overview];
 
-  @override
-  bool get stringify => true;
+
 }
 
 

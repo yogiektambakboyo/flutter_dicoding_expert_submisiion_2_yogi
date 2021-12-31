@@ -24,16 +24,7 @@ class MovieNowPlayingErrorState extends MovieNowPlayingState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  MovieNowPlayingErrorState copyWith({
-    String? message,
-  }) {
-    return MovieNowPlayingErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class MovieNowPlayingLoadedState extends MovieNowPlayingState {
@@ -46,14 +37,5 @@ class MovieNowPlayingLoadedState extends MovieNowPlayingState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  MovieNowPlayingLoadedState copyWith({
-    List<Movie>? items,
-  }) {
-    return MovieNowPlayingLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

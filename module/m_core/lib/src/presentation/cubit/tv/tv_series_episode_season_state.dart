@@ -24,16 +24,7 @@ class TVSeriesEpisodeSeasonErrorState extends TVSeriesEpisodeSeasonState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesEpisodeSeasonErrorState copyWith({
-    String? message,
-  }) {
-    return TVSeriesEpisodeSeasonErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class TVSeriesEpisodeSeasonLoadedState extends TVSeriesEpisodeSeasonState {
@@ -46,14 +37,5 @@ class TVSeriesEpisodeSeasonLoadedState extends TVSeriesEpisodeSeasonState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesEpisodeSeasonLoadedState copyWith({
-    List<Episode>? items,
-  }) {
-    return TVSeriesEpisodeSeasonLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

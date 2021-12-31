@@ -39,8 +39,8 @@ class EpisodeModel extends Equatable {
   final double? voteAverage;
   final int? voteCount;
 
-  factory EpisodeModel.fromJson(Map<String, dynamic> json) => _$EpisodeModelFromJson(json);
-  Map<String, dynamic> toJson() => _$EpisodeModelToJson(this);
+  factory EpisodeModel.fromJson(Map<String, dynamic> json) => _EpisodeModelFromJson(json);
+  Map<String, dynamic> toJson() => _EpisodeModelToJson(this);
   Episode toEntity() {
     return Episode(
       airDate: airDate,
@@ -72,11 +72,10 @@ class EpisodeModel extends Equatable {
     ];
   }
 
-  @override
-  bool get stringify => true;
+
 }
 
-EpisodeModel _$EpisodeModelFromJson(Map<String, dynamic> json) => EpisodeModel(
+EpisodeModel _EpisodeModelFromJson(Map<String, dynamic> json) => EpisodeModel(
   airDate: _validDateTimeFromJson(json['air_date'] as String?),
   episodeNumber: json['episode_number'] as int?,
   id: json['id'] as int?,
@@ -89,7 +88,7 @@ EpisodeModel _$EpisodeModelFromJson(Map<String, dynamic> json) => EpisodeModel(
   voteCount: json['vote_count'] as int?,
 );
 
-Map<String, dynamic> _$EpisodeModelToJson(EpisodeModel instance) =>
+Map<String, dynamic> _EpisodeModelToJson(EpisodeModel instance) =>
     <String, dynamic>{
       'air_date': instance.airDate?.toIso8601String(),
       'episode_number': instance.episodeNumber,

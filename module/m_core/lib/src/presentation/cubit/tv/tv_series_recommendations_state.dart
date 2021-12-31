@@ -24,16 +24,7 @@ class TVSeriesRecommendationsErrorState extends TVSeriesRecommendationsState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesRecommendationsErrorState copyWith({
-    String? message,
-  }) {
-    return TVSeriesRecommendationsErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class TVSeriesRecommendationsLoadedState extends TVSeriesRecommendationsState {
@@ -46,14 +37,5 @@ class TVSeriesRecommendationsLoadedState extends TVSeriesRecommendationsState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesRecommendationsLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesRecommendationsLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

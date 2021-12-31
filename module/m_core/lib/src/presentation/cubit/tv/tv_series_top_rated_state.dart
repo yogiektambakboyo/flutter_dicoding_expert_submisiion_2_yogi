@@ -25,16 +25,7 @@ class TVSeriesTopRatedErrorState extends TVSeriesTopRatedState {
   @override
   List<Object> get props => [message];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesTopRatedErrorState copyWith({
-    String? message,
-  }) {
-    return TVSeriesTopRatedErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class TVSeriesTopRatedLoadedState extends TVSeriesTopRatedState {
@@ -47,14 +38,5 @@ class TVSeriesTopRatedLoadedState extends TVSeriesTopRatedState {
   @override
   List<Object> get props => [items];
 
-  @override
-  bool get stringify => true;
 
-  TVSeriesTopRatedLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesTopRatedLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

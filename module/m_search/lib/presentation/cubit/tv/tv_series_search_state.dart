@@ -27,13 +27,6 @@ class TVSeriesSearchErrorState extends TVSeriesSearchState {
   @override
   bool get stringify => true;
 
-  TVSeriesSearchErrorState copyWith({
-    String? message,
-  }) {
-    return TVSeriesSearchErrorState(
-      message ?? this.message,
-    );
-  }
 }
 
 class TVSeriesSearchLoadedState extends TVSeriesSearchState {
@@ -48,12 +41,4 @@ class TVSeriesSearchLoadedState extends TVSeriesSearchState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesSearchLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesSearchLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

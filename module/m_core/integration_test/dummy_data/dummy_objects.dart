@@ -64,7 +64,6 @@ final testMovieMap = {
   'title': 'title',
 };
 
-///! START TV SERIES DUMMY
 const testTVSeriesTable = TVLocalDatabaseModel(
   id: 1,
   title: 'title',
@@ -86,11 +85,8 @@ final testTVSeriesMap = {
   'title': 'title',
 };
 
-///! END TV SERIES DUMMY
-/// ! START DUMMY CONVERT FROM JSON
-
 final jsonListAiringTodayTV =
-    (jsonDecode(readJson('dummy_data/tv_airing_today.json'))['results']) as List;
+    (jsonDecode(readJson('dummy_data/tv_on_the_air.json'))['results']) as List;
 final jsonListPopularTV = (jsonDecode(readJson('dummy_data/tv_popular.json'))['results']) as List;
 final jsonListTopRatedTV =
     (jsonDecode(readJson('dummy_data/tv_top_rated.json'))['results']) as List;
@@ -100,5 +96,3 @@ final jsonListEpisodeSeasonTV =
 final jsonListRecommendationTV =
     (jsonDecode(readJson('dummy_data/tv_recommendation.json'))['results']) as List;
 final jsonDetailTV = jsonDecode(readJson('dummy_data/tv_detail.json')) as Map<String, dynamic>;
-
-/// ! END DUMMY CONVERT FROM JSON

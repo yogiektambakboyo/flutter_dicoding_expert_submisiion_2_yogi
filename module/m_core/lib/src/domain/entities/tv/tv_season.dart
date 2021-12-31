@@ -32,26 +32,5 @@ class Season extends Equatable {
     ];
   }
 
-  @override
-  bool get stringify => true;
 
-  Season copyWith({
-    DateTime? airDate,
-    int? episodeCount,
-    int? id,
-    String? name,
-    String? overview,
-    String? posterPath,
-    int? seasonNumber,
-  }) {
-    return Season(
-      airDate: airDate ?? this.airDate,
-      episodeCount: episodeCount ?? this.episodeCount,
-      id: id ?? this.id,
-      name: name ?? this.name,
-      overview: overview ?? this.overview,
-      posterPath: posterPath ?? this.posterPath,
-      seasonNumber: seasonNumber ?? this.seasonNumber,
-    );
-  }
 }

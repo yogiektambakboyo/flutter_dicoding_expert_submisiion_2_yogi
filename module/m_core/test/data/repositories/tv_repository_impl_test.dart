@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:m_core/m_core.dart';
 import 'package:dartz/dartz.dart';
@@ -72,9 +73,6 @@ void main() {
   final tvModelList = <TVModel>[tTVModel];
   final tvList = <TV>[tTV];
 
-  //final tv = tvModel.toEntity();
-  //final tvList = [tv];
-
   final tvDetailRespon = TVDetailResponse.fromJson(jsonDecode(readJson('dummy_data/tv_detail.json')));
   final tvDetail = tvDetailRespon.toEntity();
 
@@ -106,6 +104,25 @@ void main() {
           verify(mockTVRemoteDataSource.getOnTheAirTVSeries());
           expect(result, equals(const Left(ServerFailure(''))));
         });
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.getOnTheAirTVSeries())
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.getOnTheAirTVSeries();
+      // assert
+      verify(mockTVRemoteDataSource.getOnTheAirTVSeries());
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.getOnTheAirTVSeries()).thenThrow(Exception(""));
+
+      final result = await repository.getOnTheAirTVSeries();
+
+      expect(result, const Left(CommonFailure("")));
+    });
   });
 
   group('Popular TV Series', () {
@@ -135,6 +152,26 @@ void main() {
       // assert
       verify(mockTVRemoteDataSource.getPopularTVSeries());
       expect(result, equals(const Left(ServerFailure(''))));
+    });
+
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.getPopularTVSeries())
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.getPopularTVSeries();
+      // assert
+      verify(mockTVRemoteDataSource.getPopularTVSeries());
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.getPopularTVSeries()).thenThrow(Exception(""));
+
+      final result = await repository.getPopularTVSeries();
+
+      expect(result, const Left(CommonFailure("")));
     });
   });
 
@@ -166,6 +203,27 @@ void main() {
       verify(mockTVRemoteDataSource.getTopRatedTVSeries());
       expect(result, equals(const Left(ServerFailure(''))));
     });
+
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.getTopRatedTVSeries())
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.getTopRatedTVSeries();
+      // assert
+      verify(mockTVRemoteDataSource.getTopRatedTVSeries());
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.getTopRatedTVSeries()).thenThrow(Exception(""));
+
+      final result = await repository.getTopRatedTVSeries();
+
+      expect(result, const Left(CommonFailure("")));
+    });
+    
   });
 
   group('Detail TV Series', () {
@@ -194,6 +252,28 @@ void main() {
       verify(mockTVRemoteDataSource.getDetailTVSeries(id));
       expect(result, equals(const Left(ServerFailure(''))));
     });
+
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.getDetailTVSeries(1))
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.getDetailTVSeries(1);
+      // assert
+      verify(mockTVRemoteDataSource.getDetailTVSeries(1));
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.getDetailTVSeries(1)).thenThrow(Exception(""));
+
+      final result = await repository.getDetailTVSeries(1);
+
+      expect(result, const Left(CommonFailure("")));
+    });
+    
   });
 
   group('Search TV Series', () {
@@ -225,6 +305,26 @@ void main() {
       verify(mockTVRemoteDataSource.searchTVSeries(query));
       expect(result, equals(const Left(ServerFailure(''))));
     });
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.searchTVSeries("kentang"))
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.searchTVSeries("kentang");
+      // assert
+      verify(mockTVRemoteDataSource.searchTVSeries("kentang"));
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.searchTVSeries("kentang")).thenThrow(Exception(""));
+
+      final result = await repository.searchTVSeries('kentang');
+
+      expect(result, const Left(CommonFailure("")));
+    });
+
   });
 
   group('Recommendation TV Series', () {
@@ -257,6 +357,27 @@ void main() {
       verify(mockTVRemoteDataSource.getRecommendationTVSeries(id));
       expect(result, equals(const Left(ServerFailure(''))));
     });
+
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.getRecommendationTVSeries(1))
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.getRecommendationTVSeries(1);
+      // assert
+      verify(mockTVRemoteDataSource.getRecommendationTVSeries(1));
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.getRecommendationTVSeries(1)).thenThrow(Exception(""));
+
+      final result = await repository.getRecommendationTVSeries(1);
+
+      expect(result, const Left(CommonFailure("")));
+    });
+
   });
 
   group('Episode of season TV Series', () {
@@ -293,6 +414,26 @@ void main() {
       verify(mockTVRemoteDataSource.getEpisodeSeasonTVSeries(id: id, seasonNumber: seasonNumber));
       expect(result, equals(const Left(ServerFailure(''))));
     });
+
+    test('should return connection failure when ssl not valid', () async {
+      // arrange
+      when(mockTVRemoteDataSource.getEpisodeSeasonTVSeries(id:1,seasonNumber: 1))
+          .thenThrow(const TlsException('Ssl Failed'));
+      // act
+      final result = await repository.getEpisodeSeasonTVSeries(id:1,seasonNumber: 1);
+      // assert
+      verify(mockTVRemoteDataSource.getEpisodeSeasonTVSeries(id:1,seasonNumber: 1));
+      expect(result, equals(const Left(CommonFailure('Certificated not valid Ssl Failed'))));
+    });
+
+    test('should return common failure', () async {
+      when(mockTVRemoteDataSource.getEpisodeSeasonTVSeries(id :1,seasonNumber: 1)).thenThrow(Exception(""));
+
+      final result = await repository.getEpisodeSeasonTVSeries(id :1,seasonNumber: 1);
+
+      expect(result, const Left(CommonFailure("")));
+    });
+
   });
 
   group('Watchlist TV Series', () {
@@ -306,6 +447,22 @@ void main() {
       ///assert
       final list = result.getOrElse(() => []);
       expect(list, [testTVSeriesTable.toEntity()]);
+    });
+
+    test('should show error watchlist from db local', () async {
+      when(mockTVLocalDataSource.getWatchlist()).thenThrow(DatabaseException(""));
+
+      final result = await repository.getWatchlistTVSeries();
+
+      expect(result, const Left(DatabaseFailure("")));
+    });
+
+    test('should show error watchlist from db local', () async {
+      when(mockTVLocalDataSource.getWatchlist()).thenThrow(Exception(""));
+
+      final result = await repository.getWatchlistTVSeries();
+
+      expect(result, const Left(CommonFailure("")));
     });
   });
 
@@ -335,6 +492,14 @@ void main() {
       // assert
       expect(result, const Left(DatabaseFailure('Failed to add watchlist')));
     });
+
+    test('should show error watchlist from db local', () async {
+      when(mockTVLocalDataSource.insertWatchlist(testTVSeriesTable)).thenThrow(Exception(""));
+
+      final result = await repository.insertWatchlistTVSeries(testTVDetail);
+
+      expect(result, const Left(CommonFailure("")));
+    });
   });
 
   group('remove tv series', () {
@@ -355,6 +520,14 @@ void main() {
       final result = await repository.removeWatchlistTVSeries(testTVDetail);
       // assert
       expect(result, const Left(DatabaseFailure('Failed to remove watchlist')));
+    });
+
+    test('should show error remove from db local', () async {
+      when(mockTVLocalDataSource.removeWatchlist(testTVSeriesTable)).thenThrow(Exception(""));
+
+      final result = await repository.removeWatchlistTVSeries(testTVDetail);
+
+      expect(result, const Left(CommonFailure("")));
     });
   });
 

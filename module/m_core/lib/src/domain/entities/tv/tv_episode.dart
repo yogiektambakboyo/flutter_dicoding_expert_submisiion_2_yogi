@@ -40,7 +40,4 @@ class Episode extends Equatable {
       voteCount,
     ];
   }
-
-  @override
-  bool get stringify => true;
 }
